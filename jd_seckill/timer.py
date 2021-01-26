@@ -65,7 +65,8 @@ class Timer(object):
         获取本地毫秒时间
         :return:
         """
-        return int(round(time.time() * 1000))
+        step_error_time_ms = global_config.getRaw('config', 'step_error_time_ms').__str__()
+        return int(round(time.time() * 1000)) - int(step_error_time_ms)
 
     def local_jd_time_diff(self):
         """
